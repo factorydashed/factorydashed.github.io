@@ -4,7 +4,37 @@
   "domain": "factorydashed.com",
   "concept": "Everything can be creat-ed.",
   "contact": "factorydashed@gmail.com",
-  "year": 2026
+  "year": 2026,
+  "languages": [
+   {
+    "code": "en",
+    "name": "English"
+   },
+   {
+    "code": "es",
+    "name": "Español"
+   },
+   {
+    "code": "pt",
+    "name": "Português"
+   },
+   {
+    "code": "fr",
+    "name": "Français"
+   },
+   {
+    "code": "de",
+    "name": "Deutsch"
+   },
+   {
+    "code": "it",
+    "name": "Italiano"
+   },
+   {
+    "code": "et",
+    "name": "Eesti"
+   }
+  ]
  },
  "apps": [
   {
