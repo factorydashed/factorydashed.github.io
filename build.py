@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Generates the static site in docs/ from apps.json. Run: python3 build.py"""
 import json
+import re
 import sys
 from html import escape as e
 from pathlib import Path
@@ -118,6 +119,34 @@ def media(a):
     return shot(poster, f'{a["slug"]} in the {a["defaultTheme"]} theme', lazy=False)
 
 
+def inline(text):
+    """A line of the policy: links and bold, everything else escaped."""
+    out = e(text, quote=False)
+    out = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", out)
+    return re.sub(r"\[(.+?)\]\((https?://[^)\s]+)\)", r'<a href="\2">\1</a>', out)
+
+
+def markdown(text):
+    """The small part of Markdown a policy in legal/ uses: ## headings, paragraphs, - lists and | tables. The # title is the page's own."""
+    out = []
+    for block in re.split(r"\n\s*\n", text.strip()):
+        lines = block.strip().split("\n")
+        if lines[0].startswith("# "):
+            continue
+        if lines[0].startswith("## "):
+            out.append(f"<h2>{inline(lines[0][3:])}</h2>")
+        elif lines[0].startswith("- "):
+            out.append("<ul>" + "".join(f"<li>{inline(l[2:])}</li>" for l in lines) + "</ul>")
+        elif lines[0].startswith("|"):
+            rows = [[inline(c.strip()) for c in l.strip().strip("|").split("|")] for l in lines if not re.fullmatch(r"\|[-| ]+\|", l.strip())]
+            head = "".join(f"<th>{c}</th>" for c in rows[0])
+            body = "".join("<tr>" + "".join(f"<td>{c}</td>" for c in r) + "</tr>" for r in rows[1:])
+            out.append(f'<div class="table"><table><thead><tr>{head}</tr></thead><tbody>{body}</tbody></table></div>')
+        else:
+            out.append(f"<p>{inline(' '.join(lines))}</p>")
+    return "".join(out)
+
+
 def app_page(a, i):
     cls, style = scope(a)
     nxt = APPS[(i + 1) % len(APPS)]
@@ -129,7 +158,9 @@ def app_page(a, i):
     body = f"""<div class="page {cls}" style="{style}">{top(a)}<main><header class="hh">{media(a)}<div><h1>{mark(a)}</h1><p><b>{e(a['line'])}</b> {e(a['about'])}</p>{stores(a)}<ul class="facts">{facts}</ul></div></header>
 {groups}<section class="fs"><h2>{len(a['themes'])} themes</h2><div class="strip themes" tabindex="0" role="group" aria-label="Themes">{themes}</div></section></main>{next_link}</div>{footer()}"""
     write(f"{a['slug']}/index.html", page(f"{a['slug']}: {a['line']}", f"{a['line']} {a['about']}", f"/{a['slug']}/", body))
-    privacy = f"""<div class="page {cls}" style="{style}">{top(a)}<main class="legal"><h1>{a['slug']} privacy policy</h1><p>The full policy will be published here before the app launches.</p><p>Questions: <a href="mailto:{SITE['contact']}">{SITE['contact']}</a></p></main></div>{footer()}"""
+    legal = ROOT / "legal" / f"{a['slug']}.md"
+    policy = markdown(legal.read_text()) if legal.exists() else f"""<p>The full policy will be published here before the app launches.</p><p>Questions: <a href="mailto:{SITE['contact']}">{SITE['contact']}</a></p>"""
+    privacy = f"""<div class="page {cls}" style="{style}">{top(a)}<main class="legal"><h1>{a['slug']} privacy policy</h1>{policy}</main></div>{footer()}"""
     write(f"{a['slug']}/privacy/index.html", page(f"{a['slug']} privacy policy", f"Privacy policy for {a['slug']}.", f"/{a['slug']}/privacy/", privacy, index=False))
 
 
@@ -138,6 +169,7 @@ def extras():
     write("404.html", page("Page not found", "Page not found.", "/404.html", body, index=False))
     write("CNAME", SITE["domain"])
     write(".nojekyll", "")
+    write("app-ads.txt", "google.com, pub-4928653890056064, DIRECT, f08c47fec0942fa0\n")
     write("robots.txt", f"User-agent: *\nAllow: /\nSitemap: {BASE}/sitemap.xml\n")
     urls = ["/"] + [f"/{a['slug']}/" for a in APPS]
     write("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + "".join(f"<url><loc>{BASE}{u}</loc></url>" for u in urls) + "</urlset>\n")

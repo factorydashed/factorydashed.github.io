@@ -99,3 +99,11 @@ video.ph{width:100%;object-fit:cover}
  .hh>.ph{width:210px}
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.motion{display:none}@view-transition{navigation:none}}
+.legal h2{font-size:24px;font-weight:700;letter-spacing:-.01em;margin:34px 0 10px}
+.legal p,.legal ul{margin:0 0 14px;line-height:1.55}
+.legal ul{padding-left:22px}
+.legal li{margin-bottom:8px}
+.legal a{text-decoration:underline}
+.legal .table{overflow-x:auto;margin:0 0 14px}
+.legal table{border-collapse:collapse;width:100%;font-size:16px}
+.legal th,.legal td{text-align:left;vertical-align:top;padding:9px 12px 9px 0;border-bottom:1px solid color-mix(in srgb,currentColor 25%,transparent)}
