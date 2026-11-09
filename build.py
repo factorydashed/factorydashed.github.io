@@ -98,7 +98,7 @@ def home():
     verbs = ", ".join(a["slug"] for a in APPS)
     body = f"""<header class="hero"><div class="sw" aria-hidden="true">{stripes}</div><div class="tx"><h1>{brand()}</h1><p>{e(SITE['concept'])}</p><button id="motion" class="motion" aria-pressed="false">Pause motion</button></div></header>
 <main>{''.join(row(a, i) for i, a in enumerate(APPS))}</main>{footer()}"""
-    write("index.html", page(f"{SITE['name']}: {SITE['concept']}", f"{SITE['name']} makes small Android apps, one per verb: {verbs}.", "/", body))
+    write("index.html", page(f"{SITE['name']}: {SITE['concept']}", f"{SITE['name']} makes small Android apps: {verbs}.", "/", body))
 
 
 def top(a):
@@ -136,7 +136,7 @@ def app_page(a, i):
 def extras():
     body = f'<main class="legal lost"><a href="/" aria-label="{SITE["name"]} home">{brand()}</a><h1>That page doesn\'t exist</h1><p><a href="/">See all apps</a></p></main>'
     write("404.html", page("Page not found", "Page not found.", "/404.html", body, index=False))
-    write("CNAME", SITE["domain"] + "\n")
+    write("CNAME", SITE["domain"])
     write(".nojekyll", "")
     write("robots.txt", f"User-agent: *\nAllow: /\nSitemap: {BASE}/sitemap.xml\n")
     urls = ["/"] + [f"/{a['slug']}/" for a in APPS]
