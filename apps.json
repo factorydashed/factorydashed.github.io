@@ -1,0 +1,536 @@
+{
+ "site": {
+  "name": "factory-ed",
+  "domain": "factorydashed.com",
+  "concept": "One app per verb.",
+  "contact": "factorydashed@gmail.com",
+  "year": 2026
+ },
+ "apps": [
+  {
+   "slug": "count-ed",
+   "name": "count",
+   "verb": "count",
+   "line": "Count anything.",
+   "about": "Pages of tiles for whatever you track. One tap each, with goals, timers, dice, rules and charts.",
+   "play": "",
+   "appStore": "",
+   "video": "",
+   "hero": "home_phone_light.png",
+   "defaultTheme": "Brand Clean",
+   "facts": [
+    "Works offline",
+    "No account",
+    "Android first",
+    "Free, banner ad after 3 days",
+    "One-time Remove ads"
+   ],
+   "brand": {
+    "stripe": "#C6F432",
+    "display": "geist",
+    "texture": false,
+    "bg": "#16161A",
+    "fg": "#F1EFE8",
+    "mut": "#B4B2A9",
+    "pillBg": "#C6F432",
+    "pillFg": "#16161A",
+    "storeBg": "#C6F432",
+    "storeFg": "#16161A",
+    "storeStyle": "round"
+   },
+   "groups": [
+    {
+     "title": "Count",
+     "features": [
+      {
+       "title": "Counters and quick steps",
+       "text": "Tap to count, with your own step, goal, limits, units, packs and decimals.",
+       "image": "home_phone_light.png"
+      },
+      {
+       "title": "Display styles",
+       "text": "A number, a bar, a ring, an icon fill or a row of the last seven days.",
+       "image": "display_styles_light.png"
+      },
+      {
+       "title": "Variable amounts",
+       "text": "A tap asks how much. Recent sizes are one tap away.",
+       "image": "amount_tile_light.png"
+      },
+      {
+       "title": "Set value",
+       "text": "For a reading, like a weight. The tile shows the change since last time.",
+       "image": "ask_value_dialog_dark.png"
+      },
+      {
+       "title": "Reset periods and undo",
+       "text": "Reset daily, weekly or monthly. Undo reverts the last action and what its rules did.",
+       "image": "home_phone_scrolled_light.png"
+      },
+      {
+       "title": "Start over",
+       "text": "Reset a whole page for a game or a new day, in one undo.",
+       "image": "start_over_dialog_light.png"
+      },
+      {
+       "title": "Focus mode",
+       "text": "One counter full screen, a big tap target, screen kept on.",
+       "image": "focus_phone_dark.png"
+      }
+     ]
+    },
+    {
+     "title": "Organize",
+     "features": [
+      {
+       "title": "Pages, tiles and edit mode",
+       "text": "Group tiles on pages. Drag, resize and delete them.",
+       "image": "home_phone_edit_dark.png"
+      },
+      {
+       "title": "Icons and colours",
+       "text": "Every counter gets a colour and an optional icon.",
+       "image": "counter_editor_toggles_light.png"
+      },
+      {
+       "title": "Groups",
+       "text": "Up to 8 counters in one tile, each with its goal bar.",
+       "image": "group_tiles_light.png"
+      },
+      {
+       "title": "Example pages",
+       "text": "New installs get three pages that show what it can do.",
+       "image": "seed_store_light.png"
+      },
+      {
+       "title": "Templates",
+       "text": "Start from 13 ready-made pages: Water, Workout, Macros, D&D and more.",
+       "image": "seed_day_light.png"
+      },
+      {
+       "title": "Your own templates",
+       "text": "Save any page as a template on your device.",
+       "image": null
+      },
+      {
+       "title": "Share and import",
+       "text": "Send a page as a link, QR code or file. Only the setup travels, never your counts.",
+       "image": "share_qr_light.png"
+      },
+      {
+       "title": "Phones, foldables, tablets",
+       "text": "Tabs on phones, a rail and side panes on bigger screens.",
+       "image": "home_foldable_light.png"
+      }
+     ]
+    },
+    {
+     "title": "Time",
+     "features": [
+      {
+       "title": "Timers",
+       "text": "Stopwatch with laps, countdown with loops and alerts, and time-since.",
+       "image": "workout_phone_light.png"
+      },
+      {
+       "title": "Auto-count and reminders",
+       "text": "Count automatically, remind me every X, and stop, vibrate or notify at the goal.",
+       "image": "counter_editor_auto_dark.png"
+      }
+     ]
+    },
+    {
+     "title": "Automate",
+     "features": [
+      {
+       "title": "Rules and links",
+       "text": "Rules read as sentences: \"When Rest ends, add 1 to Sets\". Drag one tile onto another.",
+       "image": "rule_builder_light.png"
+      },
+      {
+       "title": "Rule icons",
+       "text": "Every tile shows whether rules watch it or change it.",
+       "image": "rule_icons_tiles_light.png"
+      },
+      {
+       "title": "Formulas",
+       "text": "A read-only tile computed from your counters and timers.",
+       "image": "formula_editor_light.png"
+      },
+      {
+       "title": "Connected counts",
+       "text": "Take a number from Health Connect or another app, instead of taps.",
+       "image": null
+      },
+      {
+       "title": "Widgets",
+       "text": "Counter, Page and Timer home-screen widgets. Tap to count from the launcher.",
+       "image": null
+      }
+     ]
+    },
+    {
+     "title": "Progress",
+     "features": [
+      {
+       "title": "Goals, repeats and streaks",
+       "text": "Reach a goal every day, week or month and build a streak.",
+       "image": "streak_tile_light.png"
+      },
+      {
+       "title": "Share a result",
+       "text": "A picture of your result, ready to post or send.",
+       "image": "share_sheet_light.png"
+      },
+      {
+       "title": "History and stats",
+       "text": "Totals, 30-day average, best day, charts and every change by day.",
+       "image": "detail_phone_light.png"
+      },
+      {
+       "title": "Chart tiles",
+       "text": "A bar or line chart of one counter on any page.",
+       "image": "chart_tiles_light.png"
+      },
+      {
+       "title": "CSV export",
+       "text": "One counter or everything, dice rolls included.",
+       "image": "detail_phone_dark.png"
+      }
+     ]
+    },
+    {
+     "title": "Games",
+     "features": [
+      {
+       "title": "Dice and coin",
+       "text": "d4 to d100, 1 to 20 at a time, with a modifier, or a coin.",
+       "image": "dice_tiles_light.png"
+      },
+      {
+       "title": "Roll history",
+       "text": "Past rolls, newest first. Undone rolls drop out.",
+       "image": "dice_history_light.png"
+      },
+      {
+       "title": "Dice rules",
+       "text": "\"When Damage is rolled, subtract the result from HP\".",
+       "image": "rule_builder_dice_light.png"
+      },
+      {
+       "title": "Round tracker",
+       "text": "Round number and turn order on one tile, up to 20 names.",
+       "image": "rounds_tiles_light.png"
+      },
+      {
+       "title": "Table mode",
+       "text": "Lay the phone on the table: one zone per player, each facing them.",
+       "image": "table_4p_light.png"
+      }
+     ]
+    },
+    {
+     "title": "Yours",
+     "features": [
+      {
+       "title": "Settings",
+       "text": "Theme, language, the day your week starts, and the alert beep.",
+       "image": "settings_phone_light.png"
+      },
+      {
+       "title": "20 languages",
+       "text": "Follows your device. Translations are early drafts.",
+       "image": "settings_light.png"
+      }
+     ]
+    }
+   ],
+   "themes": [
+    {
+     "name": "Insight",
+     "image": "themes/insight.png"
+    },
+    {
+     "name": "Brand Clean",
+     "image": "themes/brand.png"
+    },
+    {
+     "name": "Material Tonal",
+     "image": "themes/material.png"
+    },
+    {
+     "name": "Soft Cards",
+     "image": "themes/soft.png"
+    },
+    {
+     "name": "Midnight Pro",
+     "image": "themes/pro.png"
+    },
+    {
+     "name": "Inset List",
+     "image": "themes/list.png"
+    },
+    {
+     "name": "Ink",
+     "image": "themes/ink.png"
+    },
+    {
+     "name": "Swiss",
+     "image": "themes/swiss.png"
+    },
+    {
+     "name": "Blueprint",
+     "image": "themes/blueprint.png"
+    },
+    {
+     "name": "LED",
+     "image": "themes/led.png"
+    },
+    {
+     "name": "Receipt",
+     "image": "themes/receipt.png"
+    },
+    {
+     "name": "Crate",
+     "image": "themes/crate.png"
+    },
+    {
+     "name": "Aurora Glass",
+     "image": "themes/aurora.png"
+    },
+    {
+     "name": "Transit",
+     "image": "themes/transit.png"
+    },
+    {
+     "name": "Indigo Washi",
+     "image": "themes/washi.png"
+    },
+    {
+     "name": "Salmon Paper",
+     "image": "themes/salmon.png"
+    },
+    {
+     "name": "Classic OS",
+     "image": "themes/classic.png"
+    },
+    {
+     "name": "Spectrum",
+     "image": "themes/spectrum.png"
+    },
+    {
+     "name": "Clicker Outline",
+     "image": "themes/clicker_outline.png"
+    },
+    {
+     "name": "Clicker Colour",
+     "image": "themes/clicker_colour.png"
+    }
+   ]
+  },
+  {
+   "slug": "memoriz-ed",
+   "name": "memoriz",
+   "verb": "memorize",
+   "line": "Learn and train a memory system.",
+   "about": "Build a person-action-object system for numbers, then drill it with palaces, levels and timed events.",
+   "play": "",
+   "appStore": "",
+   "video": "",
+   "hero": "drills.png",
+   "defaultTheme": "Red Slash",
+   "facts": [
+    "Works offline",
+    "No account",
+    "Android first",
+    "No network permission"
+   ],
+   "brand": {
+    "stripe": "#D4001F",
+    "display": "anton",
+    "texture": true,
+    "bg": "#D4001F",
+    "fg": "#FFFFFF",
+    "mut": "#FFE3E6",
+    "pillBg": "#FF1F3D",
+    "pillFg": "#000000",
+    "storeBg": "#FFFFFF",
+    "storeFg": "#000000",
+    "storeStyle": "slash"
+   },
+   "groups": [
+    {
+     "title": "Learn",
+     "features": [
+      {
+       "title": "The path",
+       "text": "Where you are and the next step. One button starts today's work and says how big it is.",
+       "image": "path_step3_learn.png"
+      },
+      {
+       "title": "Learn or practise",
+       "text": "Let the app pick today's work, or pick what, which numbers and how.",
+       "image": "practise_home.png"
+      },
+      {
+       "title": "First steps",
+       "text": "A short guided start: learn a code, get a PAO, learn it, get fast.",
+       "image": "first_look_show.png"
+      },
+      {
+       "title": "Spaced review",
+       "text": "Reviews are scheduled with FSRS-6, so you see each number when it is due.",
+       "image": "session_end.png"
+      },
+      {
+       "title": "Speed work",
+       "text": "Once you know a number, train how fast you recall it.",
+       "image": "speed.png"
+      },
+      {
+       "title": "Scenes",
+       "text": "Turn numbers into a scene you can picture.",
+       "image": "scene.png"
+      }
+     ]
+    },
+    {
+     "title": "Palaces",
+     "features": [
+      {
+       "title": "Your palaces",
+       "text": "Your memory palaces, open from day one.",
+       "image": "palaces.png"
+      },
+      {
+       "title": "Routes",
+       "text": "Build new routes through a place you know.",
+       "image": "palace.png"
+      },
+      {
+       "title": "Walks",
+       "text": "Walk a palace to fix it in place.",
+       "image": "walk.png"
+      }
+     ]
+    },
+    {
+     "title": "Drills",
+     "features": [
+      {
+       "title": "Six drills",
+       "text": "Numbers, images, names and faces, cards, dates and words.",
+       "image": "drills.png"
+      },
+      {
+       "title": "Levels",
+       "text": "Levels to pass, each with a clear next target.",
+       "image": "drill_ladder.png"
+      },
+      {
+       "title": "Custom runs",
+       "text": "Your own count, times and groups.",
+       "image": "drill_custom.png"
+      },
+      {
+       "title": "Competition formats",
+       "text": "Timed formats, and any run can use a palace.",
+       "image": "drill_competition.png"
+      },
+      {
+       "title": "Timed events",
+       "text": "Memorize, recall, and see exactly what you got wrong.",
+       "image": "event_memorize_number.png"
+      },
+      {
+       "title": "Level up",
+       "text": "Results that show how far you have come.",
+       "image": "event_result_level_up.png"
+      },
+      {
+       "title": "The encoder",
+       "text": "Encode real numbers: phones, plates, dates.",
+       "image": "encoder.png"
+      }
+     ]
+    },
+    {
+     "title": "Library",
+     "features": [
+      {
+       "title": "Your PAOs",
+       "text": "Major, Dominic and other encodings. Your own entries in any language.",
+       "image": "library.png"
+      },
+      {
+       "title": "The 00-99 map",
+       "text": "Every number at a glance, with how well you know it.",
+       "image": "map.png"
+      },
+      {
+       "title": "Guided builder",
+       "text": "Build your system a step at a time.",
+       "image": "builder_idea.png"
+      },
+      {
+       "title": "Import",
+       "text": "Paste text or CSV and review before it goes in.",
+       "image": "import_review.png"
+      }
+     ]
+    },
+    {
+     "title": "You",
+     "features": [
+      {
+       "title": "Level, streaks, bests",
+       "text": "Your level and your best runs in one place.",
+       "image": "you.png"
+      },
+      {
+       "title": "Share cards",
+       "text": "A card of your result to share.",
+       "image": "share_cards.png"
+      },
+      {
+       "title": "Number pings",
+       "text": "Notifications that ask you to remember a number and recall it later.",
+       "image": "ping_preview.png"
+      },
+      {
+       "title": "Backup and settings",
+       "text": "Back up, restore and set it up your way.",
+       "image": "settings.png"
+      }
+     ]
+    }
+   ],
+   "themes": [
+    {
+     "name": "Red Slash",
+     "image": "themes/red_slash.png"
+    },
+    {
+     "name": "Impact",
+     "image": "themes/impact.png"
+    },
+    {
+     "name": "Hazard",
+     "image": "themes/hazard.png"
+    },
+    {
+     "name": "Cutout",
+     "image": "themes/cutout.png"
+    },
+    {
+     "name": "Bauhaus",
+     "image": "themes/bauhaus.png"
+    },
+    {
+     "name": "Jet Age",
+     "image": "themes/jet_age.png"
+    }
+   ]
+  }
+ ]
+}
