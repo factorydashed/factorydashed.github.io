@@ -1,6 +1,6 @@
 # count-ed Privacy Policy
 
-Effective: November 13, 2026
+Effective: November 14, 2026
 
 count-ed is made by factorydashed (United Arab Emirates). Contact: factorydashed+count-ed@gmail.com.
 
@@ -20,6 +20,8 @@ If you choose to let a counter read Health Connect or another app's message, cou
 
 If you turn on Google Drive backup, count-ed saves a copy of your data in a hidden folder of your own Google Drive. We never receive it.
 
+count-ed can also count without you touching the screen, but only the ways you turn on. To hear a loud sound or one word you choose, it uses your microphone, only while that is on and a counter is on screen. The sound is analysed on your phone and is never recorded, stored or sent. You can refuse the microphone permission and turn each way off.
+
 count-ed is not a medical device and does not diagnose, treat, cure, or prevent any medical condition.
 
 ## What the app stores
@@ -31,6 +33,8 @@ The app also creates a random author ID on your device. It stays on your device 
 It remembers when you first opened the app, to start the ad-free days, and whether you removed ads, so the app works without a connection. It also remembers your answer about usage statistics.
 
 It keeps a short list of what you did in the app, such as "Saved a new counter" or "Opened a timer": the last 50 actions from the past 7 days, in fixed English words. It never contains the names or numbers you typed. The list stays on your device, whether usage statistics are on or off. It leaves your device only if you tap Report a problem and send the email.
+
+It remembers your choices for counting without opening the app: which counter each way counts, which hands-free ways are on, how loud a sound must be, and the word you chose. Sound is never stored (see Count without touching).
 
 For a counter that reads from outside, count-ed also stores, on your device, the numbers it read and when, as part of that counter's history, plus when it last read and whether something went wrong. For the secret-code option it stores the code made for that counter.
 
@@ -50,7 +54,7 @@ What a counter reads from Health Connect or another app is never passed to AdMob
 
 This is off until you say yes, either on the one question count-ed asks after you save your first counter, or with the switch Share anonymous usage in Settings. If you never say yes, nothing in this section happens. It is available on Android only; the desktop and iOS versions send nothing.
 
-- **What is sent.** Which features you use (such as rules, timers, dice, table mode, full screen, sharing and Google Drive backup: whether you turned it on, off or restored, and whether it worked, never your account, files or data); which official templates you start from; the units and the style of your tiles, as categories; where you stop, such as closing an editor without saving or skipping the tips; the keys of messages the app shows you, such as an error; the app version, phone model, Android version and language. Counting itself is sent as one rough total for the day, never your numbers. If count-ed crashes, it sends the kind of error and the names of the first few places in count-ed's own code where it happened, never the error's message.
+- **What is sent.** Which features you use (such as rules, timers, dice, table mode, full screen, sharing and Google Drive backup: whether you turned it on, off or restored, and whether it worked, never your account, files or data); which ways to count without opening the app you use (volume keys, the notification, the tile, shortcuts, and each hands-free way), at most once a day for each, and whether you turned one on or off or allowed or refused the microphone, never the sound, a word you said, or which counter; how many groups a dice has (such as 2d6+1d4) and, as a rough range, how many dice you rolled in a day; which official templates you start from; the units and the style of your tiles, as categories; where you stop, such as closing an editor without saving or skipping the tips; the keys of messages the app shows you, such as an error; the app version, phone model, Android version and language. Counting itself is sent as one rough total for the day, never your numbers. If count-ed crashes, it sends the kind of error and the names of the first few places in count-ed's own code where it happened, never the error's message.
 - **What is never sent.** Your counter, page or rule names, your numbers, notes and history, your email address, your name or your contacts.
 - **Who gets it.** PostHog, which stores it in its EU cloud and handles it for us under its own terms. Each phone is identified only by a random number made on your phone. It is not your advertising ID and is not linked to you. The app does not show it to you. Like any server your phone connects to, PostHog sees the IP address the data comes from.
 - **Why.** To see which features are used and where people get stuck, so we can improve count-ed. The legal basis is your consent.
@@ -61,6 +65,16 @@ This is off until you say yes, either on the one question count-ed asks after yo
 ## Report a problem
 
 In Settings, under Help, Report a problem opens your own email app with a message addressed to factorydashed+count-ed@gmail.com. Before it opens, count-ed shows you what the message will contain. It has room for you to write what happened, then the app version, your phone model and Android version, the language and the theme, and your last actions from the list described under What the app stores (up to 50, from the past 7 days). It never contains names or numbers you typed. You can change or delete anything, and nothing is sent until you send the email yourself. We use it to look into your problem.
+
+## Count without touching
+
+Some ways to count do not need you to open the app. Each one is off until you turn it on in Settings, and each can be turned off again there.
+
+- **Volume keys, the pinned notification, the Quick Settings tile and the launcher shortcuts.** They add to a counter you picked. The notification, the tile and the shortcuts show that counter's name and value on your phone, outside the app, and nowhere else. The notification marks its text as private, so your phone can hide it on a locked screen.
+- **Wave over the phone, and a headset or Bluetooth button.** These use your phone's proximity sensor and the button's media key. They need no permission, and count-ed reads nothing else from them.
+- **A loud sound (a clap) and one spoken word.** These use the microphone, only after you allow it. The microphone is used only while hands-free counting is on, a counter is on screen, the screen is on and count-ed is open in front. For a loud sound, count-ed reads only how loud it is. For a word, it uses your phone's own on-device speech recognition; if your phone has none, that option is not offered. The sound is analysed on your phone. Nothing is recorded, stored or sent.
+- **Your choice.** You can refuse the microphone permission and keep using every other way. You can turn each way off, and take the permission back in Android's settings.
+- **Usage statistics.** If you said yes to them, they tell which of these ways are used, never the sound, a word, a counter or how often.
 
 ## Purchases
 
@@ -83,12 +97,13 @@ A counter can accept numbers from other apps on your phone, such as Tasker. Each
 
 | Permission | Why |
 |---|---|
-| Internet and network state | To load ads and Google's consent form; to talk to your Google Drive, only if you turn on Google Drive backup; and to send anonymous usage statistics to PostHog, only if you say yes. Nothing else in the app uses the internet today. |
+| Internet and network state | To load ads and Google's consent form; to talk to your Google Drive, only if you turn on Google Drive backup; and to send anonymous usage statistics to PostHog, only if you say yes. Nothing else in the app uses the internet today. Counting without opening the app, including hands-free counting, does not use it. |
 | Advertising ID | Used by Google AdMob to serve and measure ads. |
 | Ad services (Android's Privacy Sandbox) | Used by Google's ad code, for ad measurement and relevance. |
 | Google Play billing | To buy Remove ads and to restore the purchase. |
 | Camera | Only to scan a template QR code, and only when you open the scanner. Images aren't saved or sent. |
-| Notifications | To show timer and rule alerts. |
+| Microphone | Only for hands-free counting by a loud sound or one spoken word, if you turn it on and allow it. Used only while hands-free counting is on and a counter is on screen. The sound is analysed on your phone and is never recorded, stored or sent. |
+| Notifications | To show timer and rule alerts, and the pinned counter if you pin one. |
 | Exact alarms | To fire alerts on time. |
 | Start at boot | To restore alerts after a restart. |
 | Vibration | For tap and alert feedback. |
@@ -96,7 +111,7 @@ A counter can accept numbers from other apps on your phone, such as Tasker. Each
 | Read Health Connect data in the background | To keep a connected counter up to date while count-ed is closed. Optional. |
 | Receiving the secret-code message | A counter accepts a message from other apps if it carries the right code. |
 
-You can refuse the camera, notifications and every connected source; the rest of the app keeps working.
+You can refuse the camera, the microphone, notifications and every connected source; the rest of the app keeps working.
 
 ## When your data leaves the app
 
