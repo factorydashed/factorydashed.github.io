@@ -140,7 +140,7 @@
       {
        "title": "Your own templates",
        "text": "Save any page as a template on your device.",
-       "image": null
+       "image": "publish_light.png"
       },
       {
        "title": "Share and import",
@@ -190,12 +190,12 @@
       {
        "title": "Connected counts",
        "text": "Take a number from Health Connect or another app, instead of taps.",
-       "image": null
+       "image": "connected_tiles_fresh_light.png"
       },
       {
        "title": "Widgets",
        "text": "Counter, Page and Timer home-screen widgets. Tap to count from the launcher.",
-       "image": null
+       "image": "widget_picker_light.png"
       }
      ]
     },
