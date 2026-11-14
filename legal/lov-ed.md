@@ -50,7 +50,7 @@ Your answer (yes or no) is kept on your phone with your settings. It is not writ
 
 This is off until you turn it on in Settings (Back up to Google Drive) and sign in with your own Google account. If you never do, nothing in this section happens. It is available only in some Android versions of the app.
 
-- **What is saved.** The same data as the backup file (see Backups): your names, pacts, asks, plans, scores and settings, as one file in a hidden folder of your own Google Drive that only lov-ed can open (Google's "app data" folder; you cannot see it in Drive). lov-ed asks Google only for access to that folder and for your account's email address, which Settings shows so you know which account is used.
+- **What is saved.** The same data as the backup file (see Backups): your names, pacts, asks, plans, scores and settings, as files in a folder named lov-ed in your own Google Drive, where you can see, open and delete them. lov-ed asks Google only for access to the files it makes itself (Google's "drive.file" permission, so it cannot read anything else in your Drive) and for your account's email address, which Settings shows so you know which account is used.
 - **Who gets it.** You do: it is stored in your Google account, under Google's terms and privacy policy. lov-ed and factorydashed never receive it and have no server for it. The file is not encrypted by lov-ed, and Google's own protection applies.
 - **When.** When you tap Back up now, and once a day only if you switch on Daily backup (off by default; only on an unmetered connection, such as Wi-Fi). The last five copies are kept; older ones are deleted. Restore from Drive lets you pick a copy and replaces what is on your phone.
 - **Stopping.** In Settings, Stop and sign out takes back lov-ed's access to your Google account and stops the daily backup. You can also delete the copies in your Drive at the same moment, and Delete everything offers the same. Without that, the copies stay in your Drive until you delete them; you can also remove lov-ed's access and its hidden data in your Google account settings.
@@ -69,6 +69,10 @@ Settings has Report a problem. It opens your own email app with a message you ca
 Your phone's Android Auto Backup may copy lov-ed's data to your own Google account, and may restore it when you set up a new phone. That copy is handled by Google under its own terms, and we never receive it. You can turn Auto Backup off in Android's settings.
 
 You can also save a backup file of your lov-ed data and keep it anywhere you choose, for example in your own Google Drive. The file is not encrypted and holds your names, pacts, asks, plans and scores, so keep it somewhere private. We never receive it. Some versions can also back up to your own Google Drive for you: see Google Drive backup (optional).
+
+## Love note reminder (optional)
+
+If you turn on "Remind me to send a love note" in Settings (it is off by default), lov-ed shows one local notification every few days, at the time you choose, with a fixed line that never contains a name. Tapping it opens the note screen. It is made and shown by your phone, no data leaves your phone, and what you write in a note is not kept. You can turn it off in Settings or in Android's settings.
 
 ## Question of the day (optional)
 
