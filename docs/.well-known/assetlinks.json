@@ -1,0 +1,15 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.factorydashed.counted",
+      "sha256_cert_fingerprints": [
+        "FC:02:31:0C:A8:E1:BC:47:59:B1:77:30:D5:A8:CE:73:22:5B:A4:57:71:00:2F:98:FE:B5:CB:5D:6E:CE:9A:88",
+        "E2:E5:A8:C6:DC:85:99:82:43:91:25:5C:37:EC:52:B6:7B:09:33:FE:D7:70:24:95:69:C8:35:27:38:02:99:47"
+      ]
+    }
+  }
+]

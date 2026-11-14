@@ -271,6 +271,36 @@ def app_page(a, i):
     write(out(f"{a['slug']}/index.html"), page(f"{a['slug']}: {T(a['line'])}", f"{T(a['line'])} {T(a['about'])}", path, body))
 
 
+OPEN_CSP = "default-src 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'unsafe-inline'; base-uri 'none'; form-action 'none'"
+PLAY_CERTS = [
+    "FC:02:31:0C:A8:E1:BC:47:59:B1:77:30:D5:A8:CE:73:22:5B:A4:57:71:00:2F:98:FE:B5:CB:5D:6E:CE:9A:88",  # Play app signing key
+    "E2:E5:A8:C6:DC:85:99:82:43:91:25:5C:37:EC:52:B6:7B:09:33:FE:D7:70:24:95:69:C8:35:27:38:02:99:47",  # debug key, public
+]
+
+
+def open_page(a):
+    """The page a shared link opens: English only, no fonts, no network, the payload stays in the browser."""
+    cls, style = scope(a)
+    get = a["play"] or f"/{a['slug']}/"
+    body = f"""<div class="page {cls}" style="{style}">{top(a)}<main class="legal open"><h1>Open in {a['slug']}</h1>
+<p id="msg">Someone shared a page of counters with you. Open it in {a['slug']}, or get the app first.</p>
+<div class="stores"><a id="go" class="store" href="#" hidden>Open in {a['slug']}</a><a class="store" href="{e(get)}">Get {a['slug']}</a></div>
+<noscript><p>This page needs JavaScript to open the link.</p></noscript></main></div>{footer()}
+<style>.open .stores{{justify-content:flex-start;margin-top:22px}}.open [hidden]{{display:none}}.open .store{{text-decoration:none}}</style>
+<script>(function(){{var h=location.hash.slice(1),go=document.getElementById("go");
+if(h.length&&h.length<=8000&&/^[A-Za-z0-9_-]+$/.test(h)){{go.href="counted://t#"+h;go.hidden=false}}
+else document.getElementById("msg").textContent="This link has no page in it."}})()</script>"""
+    head = f"""<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="{OPEN_CSP}"><meta name="robots" content="noindex"><meta name="referrer" content="no-referrer">
+<title>Open in {a['slug']}</title><link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css"></head>
+<body>{body}</body></html>
+"""
+    write(f"{a['slug']}/open/index.html", head)
+    links = [{"relation": ["delegate_permission/common.handle_all_urls"], "target": {"namespace": "android_app", "package_name": "com.factorydashed.counted", "sha256_cert_fingerprints": PLAY_CERTS}}]
+    write(".well-known/assetlinks.json", json.dumps(links, indent=2) + "\n")
+
+
 def english_only():
     for a in ALL_APPS:
         cls, style = scope(a)
@@ -278,12 +308,13 @@ def english_only():
         policy = markdown(legal.read_text()) if legal.exists() else f"""<p>The full policy will be published here before the app launches.</p><p>Questions: <a href="mailto:{SITE['contact']}">{SITE['contact']}</a></p>"""
         privacy = f"""<div class="page {cls}" style="{style}">{top(a)}<main class="legal"><h1>{a['slug']} privacy policy</h1>{policy}</main></div>{footer()}"""
         write(f"{a['slug']}/privacy/index.html", page(f"{a['slug']} privacy policy", f"Privacy policy for {a['slug']}.", f"/{a['slug']}/privacy/", privacy, index=False, alternates=False))
+    open_page(next(a for a in APPS if a["slug"] == "count-ed"))
     body = f'<main class="legal lost"><a href="/" aria-label="{SITE["name"]}">{brand()}</a><h1>That page doesn\'t exist</h1><p><a href="/">See all apps</a></p></main>'
     write("404.html", page("Page not found", "Page not found.", "/404.html", body, index=False, alternates=False))
     write("CNAME", SITE["domain"])
     write(".nojekyll", "")
     write("app-ads.txt", "google.com, pub-4928653890056064, DIRECT, f08c47fec0942fa0\n")
-    write("robots.txt", f"User-agent: *\nAllow: /\nSitemap: {BASE}/sitemap.xml\n")
+    write("robots.txt", f"User-agent: *\nAllow: /\nDisallow: /count-ed/open/\nSitemap: {BASE}/sitemap.xml\n")
     paths = ["/"] + [f"/{a['slug']}/" for a in APPS]
     locs = "".join(f"<url><loc>{BASE}{url(p, x['code'])}</loc></url>" for p in paths for x in LANGS)
     write("sitemap.xml", f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{locs}</urlset>\n')
