@@ -2,7 +2,7 @@
 
 Effective: November 13, 2026
 
-count-ed is made by factorydashed (United Arab Emirates). Contact: factorydashed@gmail.com.
+count-ed is made by factorydashed (United Arab Emirates). Contact: factorydashed+count-ed@gmail.com.
 
 ## The short version
 
@@ -56,11 +56,11 @@ This is off until you say yes, either on the one question count-ed asks after yo
 - **Why.** To see which features are used and where people get stuck, so we can improve count-ed. The legal basis is your consent.
 - **How long.** Up to 12 months, then it is deleted.
 - **Turning it off.** In Settings, turn off Share anonymous usage. The app stops sending at once and forgets the random number, so a later yes starts a new one. Data already sent is deleted when its 12 months end. What's shared, in Settings, lists what is sent.
-- **Deleting it.** Email factorydashed@gmail.com. Because the random number is not tied to you or shown to you, we may not be able to tell which data is yours; in that case it is deleted when its 12 months end.
+- **Deleting it.** Email factorydashed+count-ed@gmail.com. Because the random number is not tied to you or shown to you, we may not be able to tell which data is yours; in that case it is deleted when its 12 months end.
 
 ## Report a problem
 
-In Settings, under Help, Report a problem opens your own email app with a message addressed to factorydashed@gmail.com. Before it opens, count-ed shows you what the message will contain. It has room for you to write what happened, then the app version, your phone model and Android version, the language and the theme, and your last actions from the list described under What the app stores (up to 50, from the past 7 days). It never contains names or numbers you typed. You can change or delete anything, and nothing is sent until you send the email yourself. We use it to look into your problem.
+In Settings, under Help, Report a problem opens your own email app with a message addressed to factorydashed+count-ed@gmail.com. Before it opens, count-ed shows you what the message will contain. It has room for you to write what happened, then the app version, your phone model and Android version, the language and the theme, and your last actions from the list described under What the app stores (up to 50, from the past 7 days). It never contains names or numbers you typed. You can change or delete anything, and nothing is sent until you send the email yourself. We use it to look into your problem.
 
 ## Purchases
 
@@ -130,4 +130,4 @@ If a change means your data is collected, stored or shared in a new way, we'll u
 
 ## Contact
 
-Questions or requests about your privacy: factorydashed@gmail.com.
+Questions or requests about your privacy: factorydashed+count-ed@gmail.com.
