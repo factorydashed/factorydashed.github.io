@@ -561,6 +561,26 @@
      "image": "themes/jet_age.png"
     }
    ]
+  },
+  {
+   "slug": "lov-ed",
+   "name": "lov",
+   "hidden": true,
+   "brand": {
+    "stripe": "#FF8FB8",
+    "display": "geist",
+    "texture": false,
+    "bg": "#1B1216",
+    "fg": "#F6E9EE",
+    "mut": "#B89BA6",
+    "pillBg": "#FF8FB8",
+    "pillFg": "#16161A",
+    "storeBg": "#FF8FB8",
+    "storeFg": "#16161A",
+    "storeStyle": "round"
+   },
+   "groups": [],
+   "themes": []
   }
  ]
 }

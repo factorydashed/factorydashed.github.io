@@ -14,7 +14,8 @@ ROOT = Path(__file__).parent
 DOCS = ROOT / "docs"
 I18N = ROOT / "i18n"
 DATA = json.loads((ROOT / "apps.json").read_text())
-SITE, APPS = DATA["site"], DATA["apps"]
+SITE, ALL_APPS = DATA["site"], DATA["apps"]
+APPS = [a for a in ALL_APPS if not a.get("hidden")]  # hidden apps only get a privacy page
 LANGS = SITE["languages"]
 BASE = f"https://{SITE['domain']}"
 FONTS = "https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@500;600&family=Geist:wght@400;500;700&display=swap"
@@ -229,7 +230,7 @@ def app_page(a, i):
 
 
 def english_only():
-    for a in APPS:
+    for a in ALL_APPS:
         cls, style = scope(a)
         legal = ROOT / "legal" / f"{a['slug']}.md"
         policy = markdown(legal.read_text()) if legal.exists() else f"""<p>The full policy will be published here before the app launches.</p><p>Questions: <a href="mailto:{SITE['contact']}">{SITE['contact']}</a></p>"""
