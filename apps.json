@@ -576,66 +576,116 @@
     "pillFg": "#16161A",
     "storeBg": "#FF8FB8",
     "storeFg": "#16161A",
-    "storeStyle": "round"
+    "storeStyle": "round",
+    "heading": "serif"
    },
    "groups": [
     {
      "title": "The retro",
+     "story": true,
+     "intro": {
+      "title": "How a retro works",
+      "text": "Every two weeks or so, sit together with one phone. The app walks you through these steps, one screen at a time. Skip any step you like."
+     },
      "features": [
       {
        "title": "Last time",
        "text": "See how your pacts and your last good time went.",
-       "image": "retro_last_time.png"
+       "image": "retro_last_time.png",
+       "mode": "Together",
+       "long": "Start where you left off. Mark each open pact as kept, partly, not yet or dropped, and say how your last good time went."
       },
       {
        "title": "Check-in",
        "text": "How connected do you feel? Each picks 1 to 5.",
-       "image": "retro_check_in.png"
+       "image": "retro_check_in.png",
+       "mode": "Each of you",
+       "long": "Each of you picks how connected you feel, from 1 to 5. If either picks 1 or 2, the app suggests a small warm-up first."
       },
       {
        "title": "Grateful",
        "text": "Thank each other, and say what you're grateful for in life.",
-       "image": "retro_grateful_ben.png"
+       "image": "retro_grateful_ben.png",
+       "n": "1",
+       "mode": "Take turns",
+       "long": "Take turns thanking each other: the dishes after a long day, a look you still remember. Life counts too, like a new job or a great trip.",
+       "quote": "Thank you for making dinner when I got home late."
       },
       {
        "title": "Unspoken",
        "text": "Say what went unsaid, starting with \"I felt\", never \"you did\".",
-       "image": "retro_unspoken_ana.png"
+       "image": "retro_unspoken_ana.png",
+       "n": "2",
+       "mode": "Take turns",
+       "long": "Say what went unsaid since last time: something nice, something hard, something that slipped your mind. Start with how you felt, never with what they did.",
+       "quote": "I felt alone when you were on your phone at dinner."
+      },
+      {
+       "title": "Repair",
+       "text": "A way to say sorry, and reply ideas for the one listening.",
+       "image": "retro_repair_ben.png",
+       "n": "3",
+       "mode": "Take turns",
+       "long": "Say sorry for what you'd do differently. A sentence builder helps you find the words, and the one listening gets ideas for how to reply.",
+       "quote": "I messed up when I forgot to call. I'm sorry. Next time I'll text you."
+      },
+      {
+       "title": "Pact",
+       "text": "Up to 3 small pacts: \"After I ___, I will ___\".",
+       "image": "retro_pact.png",
+       "n": "4",
+       "mode": "Together",
+       "long": "Turn what came up into up to three small, easy steps. Each pact has an owner and comes back at the next retro.",
+       "quote": "After I get home, I will hug Ana before my phone."
+      },
+      {
+       "title": "Feeling loved",
+       "text": "\"What can I do to make you feel more loved?\" Small acts, not money.",
+       "image": "retro_loved_ben.png",
+       "n": "5",
+       "mode": "Take turns",
+       "long": "Each of you asks: what can I do to make you feel more loved? Keep it small, and about the thought, not the price.",
+       "quote": "Pet my head when we're on the sofa."
+      },
+      {
+       "title": "Good time",
+       "text": "Plan one good time before the next retro: light, nice or big.",
+       "image": "retro_good_time_nice.png",
+       "n": "6",
+       "mode": "Together",
+       "long": "Plan one good time before the next retro, light, nice or big. Pick an idea or write your own.",
+       "quote": "Light: a picnic at the lake."
+      },
+      {
+       "title": "Ask me anything",
+       "text": "Draw a question: fun, deep, dreams, memories, now or silly.",
+       "image": "retro_ask_card.png",
+       "n": "7",
+       "mode": "Take turns",
+       "long": "Draw a question and ask each other: fun, deep, dreams, memories, now or silly. Or ask your own.",
+       "quote": "If you could move to another country tomorrow, where would you go?"
+      },
+      {
+       "title": "Close",
+       "text": "Did you feel heard? Then a hug and the date of the next retro.",
+       "image": "retro_close.png",
+       "mode": "Each of you",
+       "long": "Each of you says if you felt heard. Then a hug, and the date of your next retro."
+      }
+     ]
+    },
+    {
+     "title": "Help along the way",
+     "features": [
+      {
+       "title": "Take turns",
+       "text": "One talks, one listens. Swap any time.",
+       "image": "common_step_ana.png"
       },
       {
        "title": "Words for feelings",
        "text": "Find the feeling, then what you need, with a live sentence to say aloud.",
        "image": "retro_words_feelings.png"
-      },
-      {
-       "title": "Repair",
-       "text": "A way to say sorry, and reply ideas for the one listening.",
-       "image": "retro_repair_ben.png"
-      },
-      {
-       "title": "Pact",
-       "text": "Up to 3 small pacts: \"After I ___, I will ___\".",
-       "image": "retro_pact.png"
-      },
-      {
-       "title": "Feeling loved",
-       "text": "\"What can I do to make you feel more loved?\" Small acts, not money.",
-       "image": "retro_loved_ben.png"
-      },
-      {
-       "title": "Good time",
-       "text": "Plan one good time before the next retro: light, nice or big.",
-       "image": "retro_good_time_nice.png"
-      },
-      {
-       "title": "Ask me anything",
-       "text": "Draw a question: fun, deep, dreams, memories, now or silly.",
-       "image": "retro_ask_card.png"
-      },
-      {
-       "title": "Close",
-       "text": "Did you feel heard? Then a hug and the date of the next retro.",
-       "image": "retro_close.png"
       }
      ]
     },
@@ -646,11 +696,6 @@
        "title": "Home",
        "text": "The next retro, open pacts and what makes each of you feel loved.",
        "image": "home_sample.png"
-      },
-      {
-       "title": "Take turns",
-       "text": "One talks, one listens. Swap any time.",
-       "image": "common_step_ana.png"
       },
       {
        "title": "Resume",
@@ -699,6 +744,25 @@
     "Doesn't record what you say",
     "Android first",
     "No network permission"
+   ],
+   "new": true,
+   "faq": [
+    [
+     "Do we need two phones?",
+     "No. You sit together with one phone and pass it, or keep it between you."
+    ],
+    [
+     "Is it therapy?",
+     "No. It's a structure for a good talk. When a topic keeps hurting, a couples therapist can help."
+    ],
+    [
+     "What does it keep?",
+     "Your names, typed pacts, asks and plans, and 1 to 5 scores. Never what you say."
+    ],
+    [
+     "How often?",
+     "Every two weeks works for most couples. You can pick weekly, monthly or every few days."
+    ]
    ]
   }
  ]

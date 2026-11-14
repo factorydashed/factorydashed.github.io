@@ -18,7 +18,7 @@ SITE, ALL_APPS = DATA["site"], DATA["apps"]
 APPS = [a for a in ALL_APPS if not a.get("hidden")]  # hidden apps only get a privacy page
 LANGS = SITE["languages"]
 BASE = f"https://{SITE['domain']}"
-FONTS = "https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@500;600&family=Geist:wght@400;500;700&display=swap"
+FONTS = "https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,500&family=Barlow+Condensed:wght@500;600&family=Geist:wght@400;500;700&display=swap"
 
 LANG = "en"
 TR = {}
@@ -92,6 +92,8 @@ def scope(a):
     b = a["brand"]
     style = ";".join(f"--{k}:{v}" for k, v in [("bg", b["bg"]), ("fg", b["fg"]), ("mut", b["mut"]), ("pill-bg", b["pillBg"]), ("pill-fg", b["pillFg"]), ("store-bg", b["storeBg"]), ("store-fg", b["storeFg"])])
     cls = f"d-{b['display']} store-{b['storeStyle']}" + (" tex" if b["texture"] else "")
+    if b.get("heading") == "serif":
+        cls += " h-serif"
     return cls, style
 
 
@@ -122,7 +124,8 @@ def footer():
     else:
         T("Draft translation. Found a mistake?")
         T("Tell us")
-    return f'<footer class="foot"><span>© {SITE["year"]} {SITE["name"]}</span><nav aria-label="{e(T("Footer"))}">{links}<a href="mailto:{SITE["contact"]}">{e(T("Contact"))}</a></nav>{note}</footer>'
+    zoom = f'<div id="zoom-text" hidden data-close="{e(T("Close screenshot"))}" data-prev="{e(T("Previous screenshot"))}" data-next="{e(T("Next screenshot"))}" data-of="{e(T("{n} of {total}"))}"></div>'
+    return zoom + f'<footer class="foot"><span>© {SITE["year"]} {SITE["name"]}</span><nav aria-label="{e(T("Footer"))}">{links}<a href="mailto:{SITE["contact"]}">{e(T("Contact"))}</a></nav>{note}</footer>'
 
 
 def language_menu(path, cls=""):
@@ -131,32 +134,30 @@ def language_menu(path, cls=""):
     return f'<details class="menu {cls}"><summary aria-label="{e(T("Language"))}: {e(now["name"])}">{e(now["name"])}</summary><div>{links}</div></details>'
 
 
-def film(a, eager=False):
-    imgs = [f["image"] for g in a["groups"] for f in g["features"] if f["image"]][:14]
-    while len(imgs) < 14:
-        imgs += imgs
-    imgs = imgs[:14]
-
-    def load(n):
-        return "" if eager and n < 8 else ' loading="lazy"'
-    return "".join(f'<figure class="ph"><img src="{asset(a, x)}" alt=""{load(n)}></figure>' for n, x in enumerate(imgs * 2))
+def anchor(text):
+    return re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
 
 
-def row(a, i):
+def feature_count(a):
+    return sum(len(g["features"]) for g in a["groups"])
+
+
+def tile(a):
     cls, style = scope(a)
-    alt = " alt" if i % 2 else ""
-    link = url(f"/{a['slug']}/")
-    return f"""<div class="wrap"><section class="row {cls}{alt}" style="{style}" aria-labelledby="r-{a['slug']}">
-<div class="fw" aria-hidden="true"><div class="film">{film(a, eager=i == 0)}</div></div>
-<div class="copy"><h2 id="r-{a['slug']}"><a href="{link}">{mark(a)}</a></h2><p>{e(T(a['line']))} {e(T(a['about']))}</p>{stores(a)}<a class="see" href="{link}">{e(T("See every feature"))}</a></div></section></div>"""
+    images = [f["image"] for g in a["groups"] for f in g["features"] if f["image"]]
+    back = next((x for x in images if x != a["hero"]), a["hero"])
+    badge = f'<span class="new">{e(T("New"))}</span>' if a.get("new") else ""
+    if LANG == "en":
+        T("New")
+    count = T("{n} features").format(n=feature_count(a))
+    return f"""<a class="tile {cls}" style="{style}" href="{url('/' + a['slug'] + '/')}"><div class="trow"><img class="icon" src="{asset(a, 'icon.svg')}" alt="" width="48" height="48">{badge}</div><h2>{mark(a)}</h2><p>{e(T(a['line']))}</p><small>{e(count)}</small><figure class="ph two" aria-hidden="true"><img src="{asset(a, back)}" alt="" loading="lazy"></figure><figure class="ph one" aria-hidden="true"><img src="{asset(a, a['hero'])}" alt="" loading="lazy"></figure></a>"""
 
 
 def home():
     stripes = "".join(f'<i style="background:{a["brand"]["stripe"]}"></i>' for a in APPS)
     names = ", ".join(a["slug"] for a in APPS)
-    pause, play = T("Pause motion"), T("Play motion")
-    body = f"""<div class="home-top"><header class="hero"><div class="sw" aria-hidden="true">{stripes}</div><div class="tx"><h1>{brand()}</h1><p translate="no" lang="en">{e(SITE['concept'])}</p><button id="motion" class="motion" aria-pressed="false" data-pause="{e(pause)}" data-play="{e(play)}">{e(pause)}</button></div></header>{language_menu("/", "home-lang")}</div>
-<main>{''.join(row(a, i) for i, a in enumerate(APPS))}</main>{footer()}"""
+    body = f"""<div class="home-top"><header class="hd"><div class="sw" aria-hidden="true">{stripes}</div><h1>{brand()}</h1><p translate="no" lang="en">{e(SITE['concept'])}</p></header>{language_menu("/", "home-lang")}</div>
+<main class="shelf" aria-label="{e(T("Apps"))}">{''.join(tile(a) for a in APPS)}</main>{footer()}"""
     write(out("index.html"), page(f"{SITE['name']}: {SITE['concept']}", T("{site} makes small Android apps: {apps}.").format(site=SITE["name"], apps=names), "/", body))
 
 
@@ -167,10 +168,26 @@ def top(a, path=None):
     return f'<nav class="top" aria-label="{e(T("Main"))}"><a href="{url("/")}" aria-label="{SITE["name"]}">{brand()}</a><div class="navs">{lang}{apps}</div></nav>'
 
 
-def feature(a, f):
+def picture(a, f, title):
+    if f["image"]:
+        return shot(asset(a, f["image"]), title)
+    return f'<div class="ph noimg"><img src="{asset(a, "icon.svg")}" alt="" loading="lazy"></div>'
+
+
+def card(a, f):
     title = T(f["title"])
-    pic = shot(asset(a, f["image"]), title) if f["image"] else f'<div class="ph noimg"><img src="{asset(a, "icon.svg")}" alt="" loading="lazy"></div>'
-    return f'<article>{pic}<h3>{e(title)}</h3><p>{e(T(f["text"]))}</p></article>'
+    return f'<article class="card">{picture(a, f, title)}<h3>{e(title)}</h3><p>{e(T(f["text"]))}</p></article>'
+
+
+def story_step(a, f, k):
+    title = T(f["title"])
+    mode = f'<span class="tag">{e(T(f["mode"]))}</span>' if f.get("mode") else ""
+    quote = ""
+    if f.get("quote"):
+        side = "b" if k % 2 else "a"
+        who = "Ben" if k % 2 else "Ana"
+        quote = f'<blockquote class="q {side}"><small>{e(T("{name} says").format(name=who))}</small>{e(T(f["quote"]))}</blockquote>'
+    return f"""<section class="step" id="s-{anchor(f['title'])}"><div><div class="num" aria-hidden="true">{f.get("n") or "·"}</div><h3>{e(title)}</h3>{mode}<p>{e(T(f.get("long") or f["text"]))}</p>{quote}</div>{picture(a, f, title)}</section>"""
 
 
 def themed_alt(a, name):
@@ -218,15 +235,39 @@ def app_page(a, i):
     nxt = APPS[(i + 1) % len(APPS)]
     ncls, nstyle = scope(nxt)
     path = f"/{a['slug']}/"
-    groups = "".join(f'<section class="fs"><h2>{e(T(g["title"]))}</h2><div class="strip" tabindex="0" role="group" aria-label="{e(T(g["title"]))}">{"".join(feature(a, f) for f in g["features"])}</div></section>' for g in a["groups"])
-    default = e(T("default"))
-    themes = "".join(f'<figure>{shot(asset(a, t["image"]), themed_alt(a, t["name"]))}<figcaption translate="no">{e(t["name"])}{f" <em>{default}</em>" if t["name"] == a["defaultTheme"] else ""}</figcaption></figure>' for t in a["themes"])
+    chips, sections = [], []
+    for g in a["groups"]:
+        gid = "g-" + anchor(g["title"])
+        if g.get("story"):
+            for f in g["features"]:
+                num = f'<b>{f["n"]}</b>' if f.get("n") else ""
+                chips.append(f'<li><a href="#s-{anchor(f["title"])}">{num}{e(T(f["title"]))}</a></li>')
+            intro = g.get("intro") or {}
+            head = f'<div class="intro"><h2>{e(T(intro.get("title") or g["title"]))}</h2>{f"<p>{e(T(intro["text"]))}</p>" if intro.get("text") else ""}</div>'
+            steps = "".join(story_step(a, f, k) for k, f in enumerate(g["features"]))
+            sections.append(f'<section class="grp story" id="{gid}">{head}{steps}</section>')
+        else:
+            chips.append(f'<li><a href="#{gid}">{e(T(g["title"]))}</a></li>')
+            cards = "".join(card(a, f) for f in g["features"])
+            sections.append(f'<section class="grp" id="{gid}"><h2>{e(T(g["title"]))}</h2><div class="cards">{cards}</div></section>')
+    if len(a["themes"]) > 1:
+        heading = T("{n} themes").format(n=len(a["themes"]))
+        default = e(T("default"))
+        figs = "".join(f'<figure>{shot(asset(a, t["image"]), themed_alt(a, t["name"]))}<figcaption translate="no">{e(t["name"])}{f" <em>{default}</em>" if t["name"] == a["defaultTheme"] else ""}</figcaption></figure>' for t in a["themes"])
+        chips.append(f'<li><a href="#themes">{e(heading)}</a></li>')
+        sections.append(f'<section class="grp" id="themes"><h2>{e(heading)}</h2><div class="themes">{figs}</div></section>')
+    elif LANG == "en":
+        T("{n} themes")
+        T("default")
+    if a.get("faq"):
+        qa = "".join(f"<details><summary>{e(T(q))}</summary><p>{e(T(ans))}</p></details>" for q, ans in a["faq"])
+        chips.append(f'<li><a href="#faq">{e(T("Questions"))}</a></li>')
+        sections.append(f'<section class="grp faq" id="faq"><h2>{e(T("Questions"))}</h2>{qa}</section>')
     facts = "".join(f"<li>{e(T(x))}</li>" for x in a["facts"])
-    heading = T("{n} themes").format(n=len(a["themes"]))
-    theme_section = f'<section class="fs"><h2>{e(heading)}</h2><div class="strip themes" tabindex="0" role="group" aria-label="{e(heading)}">{themes}</div></section>' if len(a["themes"]) > 1 else ""
+    bar = f'<nav class="bar" aria-label="{e(T("On this page"))}"><ol>{"".join(chips)}</ol></nav>'
     next_link = "" if len(APPS) < 2 else f'<a class="nextapp {ncls}" style="{nstyle}" href="{url("/" + nxt["slug"] + "/")}"><small>{e(T("Next app"))}</small>{mark(nxt)}</a>'
-    body = f"""<div class="page {cls}" style="{style}">{top(a, path)}<main><header class="hh">{media(a)}<div><h1>{mark(a)}</h1><p><b>{e(T(a['line']))}</b> {e(T(a['about']))}</p>{stores(a)}<ul class="facts">{facts}</ul></div></header>
-{groups}{theme_section}</main>{next_link}</div>{footer()}"""
+    body = f"""<div class="page {cls}" style="{style}">{top(a, path)}<main><header class="hh"><div><h1>{mark(a)}</h1><p class="lead">{e(T(a['line']))}</p><p>{e(T(a['about']))}</p>{stores(a)}<ul class="facts">{facts}</ul></div>{media(a)}</header>{bar}
+{"".join(sections)}</main>{next_link}</div>{footer()}"""
     write(out(f"{a['slug']}/index.html"), page(f"{a['slug']}: {T(a['line'])}", f"{T(a['line'])} {T(a['about'])}", path, body))
 
 
