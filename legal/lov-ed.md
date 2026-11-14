@@ -6,15 +6,17 @@ lov-ed is made by factorydashed (United Arab Emirates). Contact: factorydashed+l
 
 ## The short version
 
-lov-ed keeps your names, pacts, asks, plans and 1 to 5 scores on your phone. There is no account. The app does not use the internet, so we never receive any of it.
+lov-ed keeps your names, pacts, asks, plans and 1 to 5 scores on your phone. There is no lov-ed account, and we never receive any of it.
 
-lov-ed does not record or listen to what you say. It has no ads, no analytics and no tracking.
+The app has no network use unless you turn on an optional feature, and every such feature is off until you say yes. There are two: anonymous usage statistics (see Usage statistics below) and backup to your own Google Drive (see Google Drive backup below). The statistics never send your names, pacts, asks, plans, notes, scores, the words you pick, or anything you say or type.
+
+lov-ed does not record or listen to what you say. It has no ads and no tracking. The only analytics are the optional, anonymous usage statistics, and only if you say yes.
 
 ## What the app stores
 
 Everything stays on your phone:
 
-- the two first names you type, how often you want a retro, your reminder time, the date of your next retro and your language;
+- the two first names you type, how often you want a retro, your reminder time, the date of your next retro, your language and your Question of the day settings (on or off, the time and the topics);
 - each retro: which step you reached, who goes first, and the 1 to 5 scores you each give for how connected you feel and whether you felt heard;
 - the pacts, loved asks and good-time plans you type, with who owns them, their status and, for a good time, its date and size;
 - which questions and connection ideas were shown or marked as answered, so they don't repeat;
@@ -23,6 +25,36 @@ Everything stays on your phone:
 lov-ed never records, stores or sends what you say out loud. The feelings, needs and sorry sentences you tap are shown on screen only while you talk and are not saved.
 
 The app does not ask for your microphone, camera, contacts, location or files.
+
+## Dictation (optional)
+
+The microphone button opens your phone's own voice-typing service. lov-ed does not receive or keep any audio. Depending on your phone's settings, the service may process your voice on your phone or send it to Google (or your phone maker's speech service), under its own terms. Only the text you choose to keep is saved, as what you typed.
+
+The Tidy button next to a text field fixes capitals, spaces and full stops with simple rules on your phone. It uses no internet and no artificial intelligence, and it changes only the text in the field, which you can still edit.
+
+## Usage statistics (optional)
+
+This is off until you say yes, either on the one question lov-ed asks after your first finished retro ("Help improve lov-ed?"), or with the switch "Share anonymous usage" in Settings. If you never say yes, nothing in this section happens and the app does not connect to the internet. It is available only in the Android release version of the app; other versions send nothing.
+
+- **What is sent.** Which parts of the app get used, as a short list of fixed events: that the app was opened, how often you hold a retro (weekly, every two weeks, monthly or custom: not the days), that a retro started, finished or was dropped, how many steps were skipped (as 0, 1 to 10, 11 to 50 or 51 or more), which step of a retro came on screen or was skipped (by its fixed name, such as "pact"), which feature was used (by its fixed name: voice typing, Tidy, backup file, PDF summary, love note, Hear it back, Another round, table mode, widget ask, question of the day, a new look or language, Report a problem, Delete everything, Restore, Google Drive backup on or off, Restore from Google Drive), that a retro-count card was dismissed (as a bucket), and that something failed (by a fixed name, such as a save that did not work). Each event comes with the app version, phone model, Android version, language and screen size. If lov-ed crashes, it sends the kind of error and the names of the first few places in lov-ed's own code where it happened, never the error's message.
+- **What is never sent.** Your names or anything that says who you are; your pacts, asks, plans and notes; the words and sentences you pick; the questions or ideas you see, or their numbers; your 1 to 5 scores; the dates of your retros; and anything you say or dictate. No event has room for any of these.
+- **Who gets it.** PostHog, which stores it in its EU cloud and handles it for us under its own terms. Each phone is identified only by a random number made on your phone. It is not your advertising ID, it is not tied to you, and the app does not show it to you. Like any server your phone connects to, PostHog sees the IP address the data comes from; we have PostHog's "Discard client IP data" setting on, so it is not kept.
+- **Why.** To see which parts of lov-ed get used and where people stop, so we can improve it. The legal basis is your consent.
+- **How long.** Up to 12 months, then it is deleted.
+- **Turning it off.** In Settings, turn off Share anonymous usage. The app stops sending at once and throws away the random number, so a later yes starts a new one. Data already sent is deleted when its 12 months end. "What's shared", in Settings, lists what is sent.
+- **Deleting it.** Email factorydashed+lov-ed@gmail.com. Because the random number is not tied to you or shown to you, we may not be able to tell which data is yours; in that case it is deleted when its 12 months end.
+
+Your answer (yes or no) is kept on your phone with your settings. It is not written into a backup file, and the random number is kept outside Android Auto Backup, so a new phone starts with a new number.
+
+## Google Drive backup (optional)
+
+This is off until you turn it on in Settings (Back up to Google Drive) and sign in with your own Google account. If you never do, nothing in this section happens. It is available only in some Android versions of the app.
+
+- **What is saved.** The same data as the backup file (see Backups): your names, pacts, asks, plans, scores and settings, as one file in a hidden folder of your own Google Drive that only lov-ed can open (Google's "app data" folder; you cannot see it in Drive). lov-ed asks Google only for access to that folder and for your account's email address, which Settings shows so you know which account is used.
+- **Who gets it.** You do: it is stored in your Google account, under Google's terms and privacy policy. lov-ed and factorydashed never receive it and have no server for it. The file is not encrypted by lov-ed, and Google's own protection applies.
+- **When.** When you tap Back up now, and once a day only if you switch on Daily backup (off by default; only on an unmetered connection, such as Wi-Fi). The last five copies are kept; older ones are deleted. Restore from Drive lets you pick a copy and replaces what is on your phone.
+- **Stopping.** In Settings, Stop and sign out takes back lov-ed's access to your Google account and stops the daily backup. You can also delete the copies in your Drive at the same moment, and Delete everything offers the same. Without that, the copies stay in your Drive until you delete them; you can also remove lov-ed's access and its hidden data in your Google account settings.
+- **On your phone.** Whether it is on, the time of the last backup and which account is signed in stay on your phone. They are not written into a backup file, and the account is kept outside Android Auto Backup.
 
 ## Notifications
 
@@ -36,11 +68,27 @@ Settings has Report a problem. It opens your own email app with a message you ca
 
 Your phone's Android Auto Backup may copy lov-ed's data to your own Google account, and may restore it when you set up a new phone. That copy is handled by Google under its own terms, and we never receive it. You can turn Auto Backup off in Android's settings.
 
-You can also save a backup file of your lov-ed data and keep it anywhere you choose, for example in your own Google Drive. The file is not encrypted and holds your names, pacts, asks, plans and scores, so keep it somewhere private. We never receive it.
+You can also save a backup file of your lov-ed data and keep it anywhere you choose, for example in your own Google Drive. The file is not encrypted and holds your names, pacts, asks, plans and scores, so keep it somewhere private. We never receive it. Some versions can also back up to your own Google Drive for you: see Google Drive backup (optional).
+
+## Question of the day (optional)
+
+If you turn on "Question of the day" in Settings (it is off by default), lov-ed shows one local notification a day, at the time you choose, with a question from the built-in deck. The question is picked on your phone from the topics you choose, and the notification is made and shown by your phone. No data leaves your phone. Tapping it opens the question; the app then remembers which question was shown or marked as answered, by its number, as it does in a retro. Nothing you say is recorded. You can turn it off in Settings or in Android's settings.
+
+## Love notes (optional)
+
+You can write a short note to your partner, typed or dictated, from the Love note screen. When you tap Send, the note opens in your phone's own share sheet, so you choose the app and the person. lov-ed never keeps or sends the note and does not see where it goes. It asks for no contacts and stores no phone number. By default a small line, "sent with lov-ed", is added at the end of the note; you can turn it off in Settings.
+
+## Home-screen widget (optional)
+
+If you add the lov-ed widget to your home screen, it shows the date of your next retro, for example "In 3 days". If you turn on "Show a loved ask on the widget" in Settings, it also shows one loved ask with a first name. That is off by default. The widget never shows pacts, scores, feelings or plans. It is drawn by your phone from data already on it and sends nothing anywhere. Anyone who can see your home screen can see what the widget shows, so leave the ask off if that matters to you. Delete everything in Settings clears the widget.
+
+## PDF summary (optional)
+
+Settings has Share a PDF summary. It makes a PDF on your phone from what you typed: your names, pacts, asks and plans, and the dates of your finished retros. The 1 to 5 scores are not included. lov-ed never sends the file anywhere: it is saved where you choose, through your phone's file picker (for example Downloads or your own Google Drive), and you decide whether to share it, for example with a couples therapist. The file is not encrypted, so keep it somewhere private.
 
 ## Deleting your data
 
-Settings has Delete everything. It removes your names, pacts, asks, plans, scores and settings from your phone and starts over, for example with a new partner. Uninstalling the app also removes the data on your phone. Copies in Android Auto Backup or in a backup file you saved are not deleted by this: remove them from your Google account or from where you saved the file.
+Settings has Delete everything. It removes your names, pacts, asks, plans, scores and settings from your phone and starts over, for example with a new partner. Uninstalling the app also removes the data on your phone. Copies in Android Auto Backup, in a backup file you saved or in a PDF summary you saved are not deleted by this, and a Google Drive backup is deleted only if you tick "Also delete my Google Drive copy": remove them from your Google account or from where you saved the file.
 
 ## Who can see it
 
@@ -56,7 +104,7 @@ lov-ed is a guided habit for couples. It is not therapy or medical advice and do
 
 ## Changes
 
-If lov-ed starts handling data differently, for example with an optional feature that uses the internet, we will update this page first and say what changed.
+This version adds the optional Google Drive backup. If lov-ed starts handling data differently again, for example with another optional feature that uses the internet, we will update this page first and say what changed.
 
 ## Contact
 
