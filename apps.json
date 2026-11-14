@@ -565,7 +565,6 @@
   {
    "slug": "lov-ed",
    "name": "lov",
-   "hidden": true,
    "brand": {
     "stripe": "#FF8FB8",
     "display": "geist",
@@ -579,8 +578,128 @@
     "storeFg": "#16161A",
     "storeStyle": "round"
    },
-   "groups": [],
-   "themes": []
+   "groups": [
+    {
+     "title": "The retro",
+     "features": [
+      {
+       "title": "Last time",
+       "text": "See how your pacts and your last good time went.",
+       "image": "retro_last_time.png"
+      },
+      {
+       "title": "Check-in",
+       "text": "How connected do you feel? Each picks 1 to 5.",
+       "image": "retro_check_in.png"
+      },
+      {
+       "title": "Grateful",
+       "text": "Thank each other, and say what you're grateful for in life.",
+       "image": "retro_grateful_ben.png"
+      },
+      {
+       "title": "Unspoken",
+       "text": "Say what went unsaid, starting with \"I felt\", never \"you did\".",
+       "image": "retro_unspoken_ana.png"
+      },
+      {
+       "title": "Words for feelings",
+       "text": "Find the feeling, then what you need, with a live sentence to say aloud.",
+       "image": "retro_words_feelings.png"
+      },
+      {
+       "title": "Repair",
+       "text": "A way to say sorry, and reply ideas for the one listening.",
+       "image": "retro_repair_ben.png"
+      },
+      {
+       "title": "Pact",
+       "text": "Up to 3 small pacts: \"After I ___, I will ___\".",
+       "image": "retro_pact.png"
+      },
+      {
+       "title": "Feeling loved",
+       "text": "\"What can I do to make you feel more loved?\" Small acts, not money.",
+       "image": "retro_loved_ben.png"
+      },
+      {
+       "title": "Good time",
+       "text": "Plan one good time before the next retro: light, nice or big.",
+       "image": "retro_good_time_nice.png"
+      },
+      {
+       "title": "Ask me anything",
+       "text": "Draw a question: fun, deep, dreams, memories, now or silly.",
+       "image": "retro_ask_card.png"
+      },
+      {
+       "title": "Close",
+       "text": "Did you feel heard? Then a hug and the date of the next retro.",
+       "image": "retro_close.png"
+      }
+     ]
+    },
+    {
+     "title": "Between retros",
+     "features": [
+      {
+       "title": "Home",
+       "text": "The next retro, open pacts and what makes each of you feel loved.",
+       "image": "home_sample.png"
+      },
+      {
+       "title": "Take turns",
+       "text": "One talks, one listens. Swap any time.",
+       "image": "common_step_ana.png"
+      },
+      {
+       "title": "Resume",
+       "text": "Pick up an unfinished retro where you left it.",
+       "image": "home_resume.png"
+      },
+      {
+       "title": "Reminder",
+       "text": "One gentle reminder on retro day.",
+       "image": "notify_ask.png"
+      }
+     ]
+    },
+    {
+     "title": "Yours",
+     "features": [
+      {
+       "title": "Settings",
+       "text": "Names, how often, reminder time and language.",
+       "image": "settings.png"
+      },
+      {
+       "title": "Help",
+       "text": "lov-ed isn't therapy. Where to turn when a topic keeps hurting.",
+       "image": "help.png"
+      },
+      {
+       "title": "Our story",
+       "text": "What a retro is, and why we made lov-ed.",
+       "image": "hello.png"
+      }
+     ]
+    }
+   ],
+   "themes": [],
+   "line": "A retro for your relationship.",
+   "about": "Every few weeks, sit together with one phone and take turns: thanks, what went unsaid, sorry, small pacts and questions.",
+   "play": "",
+   "appStore": "",
+   "video": "",
+   "hero": "home_sample.png",
+   "defaultTheme": "Candlelight duo",
+   "facts": [
+    "Works offline",
+    "No account",
+    "Doesn't record what you say",
+    "Android first",
+    "No network permission"
+   ]
   }
  ]
 }

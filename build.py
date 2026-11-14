@@ -223,9 +223,10 @@ def app_page(a, i):
     themes = "".join(f'<figure>{shot(asset(a, t["image"]), themed_alt(a, t["name"]))}<figcaption translate="no">{e(t["name"])}{f" <em>{default}</em>" if t["name"] == a["defaultTheme"] else ""}</figcaption></figure>' for t in a["themes"])
     facts = "".join(f"<li>{e(T(x))}</li>" for x in a["facts"])
     heading = T("{n} themes").format(n=len(a["themes"]))
+    theme_section = f'<section class="fs"><h2>{e(heading)}</h2><div class="strip themes" tabindex="0" role="group" aria-label="{e(heading)}">{themes}</div></section>' if len(a["themes"]) > 1 else ""
     next_link = "" if len(APPS) < 2 else f'<a class="nextapp {ncls}" style="{nstyle}" href="{url("/" + nxt["slug"] + "/")}"><small>{e(T("Next app"))}</small>{mark(nxt)}</a>'
     body = f"""<div class="page {cls}" style="{style}">{top(a, path)}<main><header class="hh">{media(a)}<div><h1>{mark(a)}</h1><p><b>{e(T(a['line']))}</b> {e(T(a['about']))}</p>{stores(a)}<ul class="facts">{facts}</ul></div></header>
-{groups}<section class="fs"><h2>{e(heading)}</h2><div class="strip themes" tabindex="0" role="group" aria-label="{e(heading)}">{themes}</div></section></main>{next_link}</div>{footer()}"""
+{groups}{theme_section}</main>{next_link}</div>{footer()}"""
     write(out(f"{a['slug']}/index.html"), page(f"{a['slug']}: {T(a['line'])}", f"{T(a['line'])} {T(a['about'])}", path, body))
 
 
